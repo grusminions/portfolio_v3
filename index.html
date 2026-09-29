@@ -1,0 +1,4700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="GRUS Minions — Student Hackathon Team. Robotics, AI, Data and Intelligent Systems."
+  >
+
+  <meta
+    name="theme-color"
+    content="#07090d"
+  >
+
+  <title>GRUS Minions | Robotics × AI</title>
+
+
+  <!-- =====================================================
+       GLOBAL STYLES
+  ====================================================== -->
+
+  <style>
+
+    :root {
+
+      --bg: #07090d;
+      --bg-soft: #0a0e14;
+      --panel: #0d1118;
+      --panel-2: #111722;
+
+      --text: #f5f7fa;
+      --muted: #8d98a8;
+      --muted-2: #657080;
+
+      --line: rgba(255,255,255,.09);
+      --line-strong: rgba(255,255,255,.15);
+
+      --accent: #b7ff00;
+      --accent-2: #00e5ff;
+
+      --danger: #ff4d67;
+
+      --max-width: 1180px;
+
+      --radius-sm: 9px;
+      --radius-md: 15px;
+      --radius-lg: 22px;
+
+      --shadow:
+        0 20px 70px rgba(0,0,0,.35);
+
+    }
+
+
+    /* =====================================================
+       RESET
+    ====================================================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 80% 5%,
+          rgba(183,255,0,.075),
+          transparent 28%
+        ),
+
+        radial-gradient(
+          circle at 10% 40%,
+          rgba(0,229,255,.055),
+          transparent 25%
+        ),
+
+        var(--bg);
+
+      color: var(--text);
+
+      line-height: 1.6;
+
+      overflow-x: hidden;
+
+    }
+
+
+    ::selection {
+      background: var(--accent);
+      color: #050700;
+    }
+
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+
+    button,
+    input,
+    textarea {
+      font-family: inherit;
+    }
+
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+
+    /* =====================================================
+       CONTAINER
+    ====================================================== */
+
+    .container {
+
+      width:
+        min(
+          calc(100% - 40px),
+          var(--max-width)
+        );
+
+      margin: 0 auto;
+
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ====================================================== */
+
+    nav {
+
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+
+      z-index: 1000;
+
+      border-bottom:
+        1px solid var(--line);
+
+      background:
+        rgba(7,9,13,.72);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+    }
+
+
+    .nav-inner {
+
+      height: 72px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+    }
+
+
+    .logo {
+
+      font-size: 20px;
+
+      font-weight: 950;
+
+      letter-spacing: -1px;
+
+      white-space: nowrap;
+
+    }
+
+
+    .logo span {
+      color: var(--accent);
+    }
+
+
+    .nav-links {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 21px;
+
+      color: #c7ced8;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+    }
+
+
+    .nav-links a {
+
+      position: relative;
+
+      transition:
+        color .2s ease;
+
+    }
+
+
+    .nav-links a::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+
+      bottom: -7px;
+
+      width: 0;
+
+      height: 1px;
+
+      background: var(--accent);
+
+      transition:
+        width .25s ease;
+
+    }
+
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+
+    .menu {
+
+      display: none;
+
+      border: 0;
+
+      background: none;
+
+      color: white;
+
+      font-size: 26px;
+
+      cursor: pointer;
+
+    }
+
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .hero {
+
+      min-height: 100vh;
+
+      display: grid;
+
+      place-items: center;
+
+      padding:
+        125px
+        0
+        75px;
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+
+    .grid-bg {
+
+      position: absolute;
+
+      inset: 0;
+
+      opacity: .22;
+
+      pointer-events: none;
+
+      background-image:
+
+        linear-gradient(
+          rgba(255,255,255,.05) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.05) 1px,
+          transparent 1px
+        );
+
+      background-size: 52px 52px;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 92%
+        );
+
+      -webkit-mask-image:
+        linear-gradient(
+          to bottom,
+          black,
+          transparent 92%
+        );
+
+    }
+
+
+    .hero::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 550px;
+      height: 550px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(183,255,0,.12),
+          transparent 65%
+        );
+
+      top: -230px;
+      right: -180px;
+
+      pointer-events: none;
+
+    }
+
+
+    .hero-content {
+
+      position: relative;
+
+      z-index: 2;
+
+      text-align: center;
+
+      max-width: 920px;
+
+    }
+
+
+    .badge {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      padding:
+        8px
+        14px;
+
+      border:
+        1px solid
+        rgba(183,255,0,.24);
+
+      border-radius: 999px;
+
+      background:
+        rgba(183,255,0,.05);
+
+      color: var(--accent);
+
+      font-size: 11px;
+
+      font-weight: 850;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1.6px;
+
+    }
+
+
+    .dot {
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--accent);
+
+      box-shadow:
+        0 0 15px
+        var(--accent);
+
+    }
+
+
+    h1 {
+
+      font-size:
+        clamp(
+          58px,
+          10vw,
+          135px
+        );
+
+      line-height: .84;
+
+      letter-spacing: -8px;
+
+      font-weight: 1000;
+
+      margin:
+        28px
+        0
+        30px;
+
+    }
+
+
+    .gradient {
+
+      background:
+        linear-gradient(
+          100deg,
+          #ffffff 20%,
+          var(--accent) 60%,
+          var(--accent-2)
+        );
+
+      -webkit-background-clip: text;
+
+      background-clip: text;
+
+      color: transparent;
+
+    }
+
+
+    .hero-description {
+
+      max-width: 700px;
+
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-size: 17px;
+
+    }
+
+
+    .buttons {
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+
+      margin-top: 34px;
+
+    }
+
+
+    .btn {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 46px;
+
+      padding:
+        0
+        19px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: var(--radius-sm);
+
+      font-size: 13px;
+
+      font-weight: 850;
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+
+    }
+
+
+    .btn.primary {
+
+      background: var(--accent);
+
+      color: #050700;
+
+      border-color:
+        var(--accent);
+
+    }
+
+
+    .btn.secondary {
+
+      background:
+        rgba(255,255,255,.035);
+
+    }
+
+
+    .btn:hover {
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 15px 40px
+        rgba(0,0,0,.35);
+
+    }
+
+
+    .hero-scroll {
+
+      position: absolute;
+
+      bottom: 28px;
+
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      color: var(--muted-2);
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    /* =====================================================
+       GENERAL SECTION
+    ====================================================== */
+
+    section {
+      padding: 105px 0;
+    }
+
+
+    .section-head {
+      margin-bottom: 38px;
+    }
+
+
+    .kicker {
+
+      color: var(--accent);
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+    }
+
+
+    h2 {
+
+      font-size:
+        clamp(
+          36px,
+          5vw,
+          60px
+        );
+
+      line-height: .98;
+
+      letter-spacing: -3px;
+
+      margin-top: 9px;
+
+      font-weight: 950;
+
+    }
+
+
+    .sub {
+
+      max-width: 740px;
+
+      color: var(--muted);
+
+      margin-top: 15px;
+
+      font-size: 15px;
+
+    }
+
+
+    /* =====================================================
+       PANELS
+    ====================================================== */
+
+    .panel {
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius-lg);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.055),
+          rgba(255,255,255,.015)
+        );
+
+      box-shadow:
+        inset 0 1px
+        rgba(255,255,255,.035);
+
+    }
+
+
+    /* =====================================================
+       ABOUT
+    ====================================================== */
+
+    .about-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.08fr
+        .92fr;
+
+      gap: 20px;
+
+    }
+
+
+    .about-card {
+
+      padding: 30px;
+
+    }
+
+
+    .big-number {
+
+      font-size: 76px;
+
+      line-height: .9;
+
+      font-weight: 1000;
+
+      color: var(--accent);
+
+    }
+
+
+    .about-card h3 {
+
+      font-size: 26px;
+
+      margin-top: 18px;
+
+    }
+
+
+    .about-card p {
+
+      color: var(--muted);
+
+      margin-top: 9px;
+
+      font-size: 14px;
+
+    }
+
+
+    .stats {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 10px;
+
+      margin-top: 25px;
+
+    }
+
+
+    .stat {
+
+      padding: 17px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        13px;
+
+      background:
+        rgba(0,0,0,.16);
+
+    }
+
+
+    .stat strong {
+
+      display: block;
+
+      font-size: 24px;
+
+    }
+
+
+    .stat span {
+
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      margin-top: 2px;
+
+    }
+
+
+    /* =====================================================
+       TAGS
+    ====================================================== */
+
+    .tags {
+
+      display: flex;
+
+      gap: 7px;
+
+      flex-wrap: wrap;
+
+      margin-top: 20px;
+
+    }
+
+
+    .tag {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      padding:
+        6px
+        9px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 7px;
+
+      background:
+        rgba(255,255,255,.025);
+
+      color: #c9d1db;
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+    }
+
+
+   <!-- =======================================================
+     TEAM
+======================================================= -->
+
+<section id="team">
+
+  <div class="container">
+
+```
+<div class="section-head reveal">
+
+  <div class="kicker">
+    02 / The Team
+  </div>
+
+
+  <h2>
+    Meet the Minions.
+  </h2>
+
+
+  <p class="sub">
+
+    Six members. Different
+    strengths. One system built
+    to bring robotics, AI, data
+    and software together.
+
+  </p>
+
+</div>
+
+
+
+<div class="team-grid">
+
+
+  <!-- PRANESH -->
+
+<a
+  href="https://www.linkedin.com/in/rajaguru-pranesh-07237243b/?isSelfProfile=true"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="panel member reveal">
+
+  <div class="avatar">
+    01
+  </div>
+
+  <h3>
+    Pranesh
+  </h3>
+
+  <div class="role">
+    Team Lead / Systems
+  </div>
+
+  <p>
+    Leads the team and oversees
+    system architecture,
+    integration and coordination
+    across the hardware, software
+    and AI components.
+  </p>
+
+</a>
+
+
+<!-- HITHESHWAR -->
+
+<a
+  href="https://www.linkedin.com/in/hitheshwar-k-03b24b27b/"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="panel member reveal">
+
+  <div class="avatar">
+    02
+  </div>
+
+  <h3>
+    Hitheshwar
+  </h3>
+
+  <div class="role">
+    AI + Data Processing
+  </div>
+
+  <p>
+    Handles sensor-data processing,
+    AI pipeline support,
+    multi-sensor integration,
+    pattern analysis and detection
+    performance evaluation.
+  </p>
+
+</a>
+
+
+<!-- DRISHYA -->
+
+<a
+  href="https://www.linkedin.com/in/drishya-d-387860414?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="panel member reveal">
+
+  <div class="avatar">
+    03
+  </div>
+
+  <h3>
+    Drishya
+  </h3>
+
+  <div class="role">
+    AI + Data Processing
+  </div>
+
+  <p>
+    Works on AI and
+    machine-learning components,
+    pattern analysis and
+    evaluation of intelligent
+    system outputs.
+  </p>
+
+</a>
+
+
+<!-- NIKHIL -->
+
+<a
+  href="https://www.linkedin.com/in/nikhil-prakash-344397409?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="panel member reveal">
+
+  <div class="avatar">
+    04
+  </div>
+
+  <h3>
+    Nikhil Prakash
+  </h3>
+
+  <div class="role">
+    Frontend Developer / Mechanical Lead
+  </div>
+
+  <p>
+    Develops the frontend
+    interface while leading
+    the mechanical side of
+    the project, including
+    physical design and
+    robotics structure.
+  </p>
+
+</a>
+
+
+<!-- DURGA -->
+
+<a
+  href="https://www.linkedin.com/in/nambudurga-devi-b28a95439?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="panel member reveal">
+
+  <div class="avatar">
+    05
+  </div>
+
+  <h3>
+    Nambu Durga Devi
+  </h3>
+
+  <div class="role">
+    Backend / API Integration
+  </div>
+
+  <p>
+    Works on backend development
+    and API integration,
+    connecting software components
+    and enabling communication
+    between system modules.
+  </p>
+
+</a>
+
+
+<!-- PRANAV -->
+
+<a
+  href="PRANAV_LINKEDIN_URL"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="panel member reveal">
+
+  <div class="avatar">
+    06
+  </div>
+
+  <h3>
+    Pranav
+  </h3>
+
+  <div class="role">
+    Backend / API Integration
+  </div>
+
+  <p>
+    Supports backend development,
+    API integration and system
+    connectivity, helping different
+    components communicate
+    reliably.
+  </p>
+
+ </a>
+
+</div>
+```
+
+  </div>
+
+</section>
+
+
+    /* =====================================================
+       PROJECT VISUAL
+    ====================================================== */
+
+    .project-visual {
+
+      min-height: 455px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius-lg);
+
+      background:
+        #090e14;
+
+    }
+
+
+    .project-visual::before {
+
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 50% 50%,
+          rgba(183,255,0,.13),
+          transparent 35%
+        );
+
+    }
+
+
+    .visual-grid {
+
+      position: absolute;
+
+      inset: 0;
+
+      opacity: .25;
+
+      background-image:
+
+        linear-gradient(
+          rgba(255,255,255,.045) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.045) 1px,
+          transparent 1px
+        );
+
+      background-size:
+        42px 42px;
+
+    }
+
+
+    /* =====================================================
+       ROBOT VISUAL
+    ====================================================== */
+
+    .robot {
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform:
+        translate(-50%,-50%);
+
+      width: 190px;
+      height: 235px;
+
+      border:
+        2px solid
+        rgba(183,255,0,.62);
+
+      border-radius:
+        70px
+        70px
+        45px
+        45px;
+
+      background:
+        linear-gradient(
+          150deg,
+          #18222d,
+          #0a0f15
+        );
+
+      box-shadow:
+        0 0 70px
+        rgba(183,255,0,.13);
+
+    }
+
+
+    .robot-head {
+
+      position: absolute;
+
+      left: 28px;
+      right: 28px;
+
+      top: 25px;
+
+      height: 82px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.16);
+
+      border-radius: 28px;
+
+      background:
+        #101821;
+
+    }
+
+
+    .robot-eye {
+
+      position: absolute;
+
+      top: 35px;
+
+      width: 17px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background:
+        var(--accent);
+
+      box-shadow:
+        0 0 20px
+        var(--accent);
+
+    }
+
+
+    .robot-eye.left {
+      left: 55px;
+    }
+
+
+    .robot-eye.right {
+      right: 55px;
+    }
+
+
+    .robot-body-line {
+
+      position: absolute;
+
+      left: 35px;
+      right: 35px;
+
+      top: 135px;
+
+      height: 2px;
+
+      background:
+        rgba(183,255,0,.35);
+
+    }
+
+
+    .robot-sensor {
+
+      position: absolute;
+
+      left: 50%;
+
+      top: 158px;
+
+      transform:
+        translateX(-50%);
+
+      width: 42px;
+      height: 42px;
+
+      border-radius: 50%;
+
+      border:
+        2px solid
+        var(--accent-2);
+
+      box-shadow:
+        0 0 24px
+        rgba(0,229,255,.3);
+
+    }
+
+
+    .robot-antenna {
+
+      position: absolute;
+
+      top: -43px;
+
+      left: 50%;
+
+      width: 3px;
+      height: 43px;
+
+      transform:
+        translateX(-50%);
+
+      background:
+        var(--accent);
+
+    }
+
+
+    .robot-antenna::after {
+
+      content: "";
+
+      position: absolute;
+
+      left: 50%;
+      top: -8px;
+
+      width: 12px;
+      height: 12px;
+
+      transform:
+        translateX(-50%);
+
+      border-radius: 50%;
+
+      background:
+        var(--accent);
+
+      box-shadow:
+        0 0 15px
+        var(--accent);
+
+    }
+
+
+    .visual-label {
+
+      position: absolute;
+
+      left: 22px;
+      bottom: 20px;
+
+      color:
+        rgba(255,255,255,.5);
+
+      font-size: 9px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+
+    }
+
+
+    /* =====================================================
+       PROJECT INFO
+    ====================================================== */
+
+    .project-info {
+
+      padding: 30px;
+
+    }
+
+
+    .project-info h3 {
+
+      font-size:
+        clamp(
+          34px,
+          4vw,
+          46px
+        );
+
+      line-height: .95;
+
+      letter-spacing: -2px;
+
+      margin-top: 9px;
+
+    }
+
+
+    .project-info > p {
+
+      color: var(--muted);
+
+      margin-top: 17px;
+
+      font-size: 14px;
+
+    }
+
+
+    .features {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2,1fr);
+
+      gap: 11px;
+
+      margin-top: 23px;
+
+    }
+
+
+    .feature {
+
+      padding:
+        12px
+        14px;
+
+      border-left:
+        2px solid
+        var(--accent);
+
+      background:
+        rgba(255,255,255,.025);
+
+    }
+
+
+    .feature strong {
+
+      display: block;
+
+      font-size: 12px;
+
+    }
+
+
+    .feature span {
+
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      line-height: 1.5;
+
+      margin-top: 3px;
+
+    }
+
+
+    /* =====================================================
+       GEOSHIELD VISUAL
+    ====================================================== */
+
+    .geo-visual {
+
+      min-height: 455px;
+
+      position: relative;
+
+      overflow: hidden;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        var(--radius-lg);
+
+      background:
+
+        radial-gradient(
+          circle at 25% 30%,
+          rgba(0,229,255,.17),
+          transparent 22%
+        ),
+
+        radial-gradient(
+          circle at 75% 65%,
+          rgba(183,255,0,.13),
+          transparent 24%
+        ),
+
+        #080e14;
+
+    }
+
+
+    .geo-grid {
+
+      position: absolute;
+
+      inset: 0;
+
+      opacity: .24;
+
+      background-image:
+
+        linear-gradient(
+          rgba(255,255,255,.05) 1px,
+          transparent 1px
+        ),
+
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.05) 1px,
+          transparent 1px
+        );
+
+      background-size:
+        42px 42px;
+
+    }
+
+
+    .geo-core {
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform:
+        translate(-50%,-50%);
+
+      width: 195px;
+      height: 195px;
+
+      display: grid;
+
+      place-items: center;
+
+      text-align: center;
+
+      border:
+        1px solid
+        rgba(0,229,255,.58);
+
+      border-radius: 50%;
+
+      background:
+        rgba(5,12,18,.9);
+
+      box-shadow:
+        0 0 75px
+        rgba(0,229,255,.13);
+
+    }
+
+
+    .geo-core::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 138px;
+      height: 138px;
+
+      border:
+        1px dashed
+        rgba(183,255,0,.55);
+
+      border-radius: 50%;
+
+    }
+
+
+    .geo-core strong {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: block;
+
+      font-size: 21px;
+
+      letter-spacing: 1px;
+
+    }
+
+
+    .geo-core span {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: block;
+
+      margin-top: 5px;
+
+      color: var(--accent);
+
+      font-size: 8px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.4px;
+
+    }
+
+
+    .geo-node {
+
+      position: absolute;
+
+      z-index: 4;
+
+      padding:
+        8px
+        11px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 8px;
+
+      background:
+        rgba(7,9,13,.84);
+
+      color:
+        #cbd4df;
+
+      font-size: 9px;
+
+      font-weight: 850;
+
+      letter-spacing: .4px;
+
+    }
+
+
+    .geo-node-1 {
+
+      top: 12%;
+      left: 7%;
+
+    }
+
+
+    .geo-node-2 {
+
+      top: 12%;
+      right: 7%;
+
+    }
+
+
+    .geo-node-3 {
+
+      bottom: 12%;
+      left: 7%;
+
+    }
+
+
+    .geo-node-4 {
+
+      bottom: 12%;
+      right: 7%;
+
+    }
+
+
+    .geo-line {
+
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      width: 38%;
+
+      height: 1px;
+
+      transform-origin: left;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,229,255,.45),
+          transparent
+        );
+
+    }
+
+
+    .geo-line.one {
+
+      transform:
+        translateY(-80px)
+        rotate(-150deg);
+
+    }
+
+
+    .geo-line.two {
+
+      transform:
+        translateY(-80px)
+        rotate(-30deg);
+
+    }
+
+
+    .geo-line.three {
+
+      transform:
+        translateY(80px)
+        rotate(150deg);
+
+    }
+
+
+    .geo-line.four {
+
+      transform:
+        translateY(80px)
+        rotate(30deg);
+
+    }
+
+
+    /* =====================================================
+       GEOSHIELD METRICS
+    ====================================================== */
+
+    .geo-metrics {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 11px;
+
+      margin-top: 18px;
+
+    }
+
+
+    .geo-metric {
+
+      padding: 18px;
+
+      text-align: center;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        13px;
+
+      background:
+        rgba(0,0,0,.16);
+
+    }
+
+
+    .geo-metric strong {
+
+      display: block;
+
+      color: var(--accent);
+
+      font-size: 24px;
+
+    }
+
+
+    .geo-metric span {
+
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      margin-top: 2px;
+
+    }
+
+
+    .geo-impact {
+
+      margin-top: 18px;
+
+      padding: 28px;
+
+    }
+
+
+    .geo-impact h3 {
+
+      font-size: 28px;
+
+      letter-spacing: -1px;
+
+      margin-top: 8px;
+
+    }
+
+
+    .geo-impact p {
+
+      max-width: 850px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 11px;
+
+    }
+
+
+    /* =====================================================
+       PROJECT DIVIDER
+    ====================================================== */
+
+    .project-divider {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 15px;
+
+      margin:
+        10px
+        0
+        55px;
+
+    }
+
+
+    .project-divider-line {
+
+      height: 1px;
+
+      flex: 1;
+
+      background:
+        var(--line);
+
+    }
+
+
+    .project-divider span {
+
+      color:
+        var(--muted-2);
+
+      font-size: 9px;
+
+      font-weight: 900;
+
+      letter-spacing: 2px;
+
+    }
+
+
+    /* =====================================================
+       TECHNOLOGY
+    ====================================================== */
+
+    .tech-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 12px;
+
+    }
+
+
+    .tech {
+
+      padding:
+        23px
+        12px;
+
+      text-align: center;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        14px;
+
+      background:
+        rgba(255,255,255,.022);
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease;
+
+    }
+
+
+    .tech:hover {
+
+      transform:
+        translateY(-4px);
+
+      border-color:
+        rgba(183,255,0,.24);
+
+    }
+
+
+    .tech-icon {
+
+      font-size: 27px;
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .tech strong {
+
+      display: block;
+
+      font-size: 12px;
+
+    }
+
+
+    .tech span {
+
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      margin-top: 2px;
+
+    }
+
+
+    /* =====================================================
+       WORKFLOW
+    ====================================================== */
+
+    .timeline {
+
+      position: relative;
+
+      border-left:
+        1px solid
+        var(--line);
+
+      margin-left: 9px;
+
+      padding-left: 32px;
+
+    }
+
+
+    .step {
+
+      position: relative;
+
+      margin-bottom: 38px;
+
+    }
+
+
+    .step:last-child {
+      margin-bottom: 0;
+    }
+
+
+    .step::before {
+
+      content: "";
+
+      position: absolute;
+
+      left: -38px;
+
+      top: 5px;
+
+      width: 11px;
+      height: 11px;
+
+      border-radius: 50%;
+
+      background:
+        var(--accent);
+
+      box-shadow:
+        0 0 17px
+        rgba(183,255,0,.55);
+
+    }
+
+
+    .step small {
+
+      color: var(--accent);
+
+      font-size: 10px;
+
+      font-weight: 900;
+
+      letter-spacing: 1.5px;
+
+    }
+
+
+    .step h3 {
+
+      font-size: 23px;
+
+      letter-spacing: -.6px;
+
+      margin-top: 4px;
+
+    }
+
+
+    .step p {
+
+      max-width: 750px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 6px;
+
+    }
+
+
+    /* =====================================================
+       IMPACT CARDS
+    ====================================================== */
+
+    .impact-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 15px;
+
+    }
+
+
+    .impact-card {
+
+      padding: 26px;
+
+    }
+
+
+    .impact-number {
+
+      color: var(--accent);
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      letter-spacing: 1px;
+
+    }
+
+
+    .impact-card h3 {
+
+      font-size: 22px;
+
+      margin-top: 9px;
+
+    }
+
+
+    .impact-card p {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 8px;
+
+    }
+
+
+    /* =====================================================
+       CONTACT
+    ====================================================== */
+
+    .cta {
+
+      padding:
+        70px
+        25px;
+
+      text-align: center;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:
+        25px;
+
+      background:
+
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(183,255,0,.09),
+          transparent 38%
+        ),
+
+        linear-gradient(
+          135deg,
+          rgba(183,255,0,.035),
+          rgba(0,229,255,.025)
+        );
+
+    }
+
+
+    .cta h2 {
+      margin-top: 10px;
+    }
+
+
+    .cta p {
+
+      max-width: 620px;
+
+      margin:
+        15px
+        auto
+        0;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    footer {
+
+      padding:
+        35px
+        0;
+
+      border-top:
+        1px solid
+        var(--line);
+
+      color:
+        var(--muted);
+
+      font-size: 11px;
+
+    }
+
+
+    .footer-inner {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+    }
+
+
+    .footer-brand {
+
+      color:
+        var(--text);
+
+      font-weight: 900;
+
+    }
+
+
+    .footer-brand span {
+      color: var(--accent);
+    }
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ====================================================== */
+
+    .reveal {
+
+      opacity: 0;
+
+      transform:
+        translateY(22px);
+
+      transition:
+        opacity .7s ease,
+        transform .7s ease;
+
+    }
+
+
+    .reveal.show {
+
+      opacity: 1;
+
+      transform:
+        translateY(0);
+
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ====================================================== */
+
+    @media (max-width: 950px) {
+
+      .nav-links {
+        gap: 13px;
+      }
+
+      .team-grid {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+      .tech-grid {
+        grid-template-columns:
+          repeat(3,1fr);
+      }
+
+      .project {
+        grid-template-columns:
+          1fr;
+      }
+
+      .about-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .impact-grid {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+    }
+
+
+    @media (max-width: 800px) {
+
+      .menu {
+        display: block;
+      }
+
+
+      .nav-links {
+
+        display: none;
+
+        position: absolute;
+
+        top: 72px;
+
+        left: 0;
+
+        width: 100%;
+
+        padding: 22px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 17px;
+
+        background:
+          rgba(7,9,13,.97);
+
+        border-bottom:
+          1px solid
+          var(--line);
+
+      }
+
+
+      .nav-links.open {
+        display: flex;
+      }
+
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+
+      h1 {
+        letter-spacing:
+          -5px;
+      }
+
+
+      .geo-metrics {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+    }
+
+
+    @media (max-width: 580px) {
+
+      .container {
+
+        width:
+          min(
+            calc(100% - 26px),
+            var(--max-width)
+          );
+
+      }
+
+
+      section {
+        padding:
+          75px 0;
+      }
+
+
+      .hero {
+        padding-top:
+          110px;
+      }
+
+
+      h1 {
+        font-size:
+          clamp(
+            54px,
+            18vw,
+            90px
+          );
+
+        letter-spacing:
+          -4px;
+
+      }
+
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+
+      .about-card,
+      .project-info,
+      .geo-impact {
+        padding: 22px;
+      }
+
+
+      .stats {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .team-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .features {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .tech-grid {
+        grid-template-columns:
+          repeat(2,1fr);
+      }
+
+
+      .impact-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+
+      .project-visual,
+      .geo-visual {
+        min-height:
+          350px;
+      }
+
+
+      .robot {
+        transform:
+          translate(-50%,-50%)
+          scale(.82);
+      }
+
+
+      .geo-core {
+
+        width: 155px;
+        height: 155px;
+
+      }
+
+
+      .geo-core::before {
+
+        width: 108px;
+        height: 108px;
+
+      }
+
+
+      .geo-node {
+
+        padding:
+          6px
+          8px;
+
+        font-size: 7px;
+
+      }
+
+
+      .footer-inner {
+
+        flex-direction:
+          column;
+
+        align-items:
+          flex-start;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       NAVIGATION
+  ====================================================== -->
+
+  <nav>
+
+    <div class="container nav-inner">
+
+
+      <a
+        href="#home"
+        class="logo"
+      >
+        GRUS<span> MINIONS</span>
+      </a>
+
+
+      <button
+        class="menu"
+        id="menuButton"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+
+      <div
+        class="nav-links"
+        id="navLinks"
+      >
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#team">
+          Team
+        </a>
+
+        <a href="#project">
+          Project 01
+        </a>
+
+        <a href="#geoshield">
+          Project 02
+        </a>
+
+        <a href="#stack">
+          Tech Stack
+        </a>
+
+        <a href="#workflow">
+          Workflow
+        </a>
+
+        <a href="#contact">
+          Contact
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <main>
+
+
+    <!-- ===================================================
+         HERO
+    ==================================================== -->
+
+    <section
+      class="hero"
+      id="home"
+    >
+
+      <div class="grid-bg"></div>
+
+
+      <div
+        class="container hero-content reveal"
+      >
+
+        <div class="badge">
+
+          <span class="dot"></span>
+
+          Student Hackathon Team
+          • Robotics + AI
+
+        </div>
+
+
+        <h1>
+
+          GRUS
+
+          <br>
+
+          <span class="gradient">
+            MINIONS
+          </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+          A student-built team combining
+          robotics, artificial intelligence,
+          data processing, software and intelligent
+          systems to solve real-world challenges.
+
+        </p>
+
+
+        <div class="buttons">
+
+          <a
+            href="#project"
+            class="btn primary"
+          >
+            Explore Projects ↓
+          </a>
+
+
+          <a
+            href="#team"
+            class="btn secondary"
+          >
+            Meet the Team
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-scroll">
+        Scroll to explore
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         ABOUT
+    ==================================================== -->
+
+    <section id="about">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            01 / ABOUT US
+          </div>
+
+          <h2>
+            Small team.
+            <br>
+            Big systems.
+          </h2>
+
+          <p class="sub">
+
+            GRUS Minions is a student hackathon
+            team focused on building practical
+            solutions through artificial intelligence,
+            robotics, sensor systems and intelligent
+            data processing.
+
+          </p>
+
+        </div>
+
+
+        <div class="about-grid">
+
+
+          <div
+            class="panel about-card reveal"
+          >
+
+            <div class="big-number">
+              01
+            </div>
+
+
+            <h3>
+              Our Mission
+            </h3>
+
+
+            <p>
+
+              Transform raw information from
+              the physical world into meaningful
+              intelligence.
+
+              We design systems that can sense,
+              process, understand and respond
+              to challenging environments.
+
+            </p>
+
+
+            <div class="stats">
+
+
+              <div class="stat">
+
+                <strong>
+                  AI
+                </strong>
+
+                <span>
+                  Intelligence
+                </span>
+
+              </div>
+
+
+              <div class="stat">
+
+                <strong>
+                  RBT
+                </strong>
+
+                <span>
+                  Robotics
+                </span>
+
+              </div>
+
+
+              <div class="stat">
+
+                <strong>
+                  DATA
+                </strong>
+
+                <span>
+                  Processing
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+
+          <div
+            class="panel about-card reveal"
+          >
+
+            <div class="kicker">
+              WHAT WE DO
+            </div>
+
+
+            <h3>
+              Sense → Process
+              → Understand → Act.
+            </h3>
+
+
+            <p>
+
+              Our approach connects hardware
+              and software into one intelligent
+              pipeline.
+
+              Sensors collect information,
+              data processing prepares it,
+              AI identifies patterns, and the
+              system converts those insights
+              into useful decisions.
+
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">
+                Computer Vision
+              </span>
+
+              <span class="tag">
+                Sensor Fusion
+              </span>
+
+              <span class="tag">
+                AI / ML
+              </span>
+
+              <span class="tag">
+                Data Processing
+              </span>
+
+              <span class="tag">
+                Robotics
+              </span>
+
+              <span class="tag">
+                Embedded Systems
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         TEAM
+    ==================================================== -->
+
+    <section id="team">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            02 / THE TEAM
+          </div>
+
+          <h2>
+            Meet the Minions.
+          </h2>
+
+          <p class="sub">
+
+            Six members.
+            Different strengths.
+            One system built to bring
+            robotics, AI, data and software together.
+
+          </p>
+
+        </div>
+
+
+        <div class="team-grid">
+
+
+          <!-- PRANESH -->
+
+          <div
+            class="panel member reveal"
+          >
+
+            <div class="avatar">
+              01
+            </div>
+
+
+            <h3>
+              Pranesh
+            </h3>
+
+
+            <div class="role">
+              Team Lead / Systems
+            </div>
+
+
+            <p>
+
+              Leads the team and oversees
+              system architecture, integration
+              and coordination across hardware,
+              software and AI components.
+
+            </p>
+
+          </div>
+
+
+
+          <!-- HITHESHWAR -->
+
+          <div
+            class="panel member reveal"
+          >
+
+            <div class="avatar">
+              02
+            </div>
+
+
+            <h3>
+              Hitheshwar
+            </h3>
+
+
+            <div class="role">
+              AI + Data Processing
+            </div>
+
+
+            <p>
+
+              Handles sensor-data processing,
+              AI pipeline support, multi-sensor
+              integration, pattern analysis and
+              detection performance evaluation.
+
+            </p>
+
+
+            <a
+              class="member-link"
+              href="https://www.linkedin.com/in/hitheshwar-k-03b24b27b/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+
+          </div>
+
+
+
+          <!-- DRISHYA -->
+
+          <div
+            class="panel member reveal"
+          >
+
+            <div class="avatar">
+              03
+            </div>
+
+
+            <h3>
+              Drishya
+            </h3>
+
+
+            <div class="role">
+              AI / ML
+            </div>
+
+
+            <p>
+
+              Works on AI and machine-learning
+              components, pattern analysis and
+              evaluation of intelligent system
+              outputs.
+
+            </p>
+
+
+            <a
+              class="member-link"
+              href="https://www.linkedin.com/in/drishya-d-387860414"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+
+          </div>
+
+
+
+          <!-- NIKHIL -->
+
+          <div
+            class="panel member reveal"
+          >
+
+            <div class="avatar">
+              04
+            </div>
+
+
+            <h3>
+              Nikhil Prakash
+            </h3>
+
+
+            <div class="role">
+              Frontend Developer /
+              Mechanical Lead
+            </div>
+
+
+            <p>
+
+              Develops the frontend interface
+              while leading the mechanical side
+              of the project, including physical
+              design and robotics structure.
+
+            </p>
+
+          </div>
+
+
+
+          <!-- DURGA -->
+
+          <div
+            class="panel member reveal"
+          >
+
+            <div class="avatar">
+              05
+            </div>
+
+
+            <h3>
+              Nambu Durga Devi
+            </h3>
+
+
+            <div class="role">
+              Backend / API Integration
+            </div>
+
+
+            <p>
+
+              Works on backend development
+              and API integration, connecting
+              software components and enabling
+              communication between system modules.
+
+            </p>
+
+
+            <a
+              class="member-link"
+              href="https://www.linkedin.com/in/nambudurga-devi-b28a95439"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+
+          </div>
+
+
+
+          <!-- PRANAV -->
+
+          <div
+            class="panel member reveal"
+          >
+
+            <div class="avatar">
+              06
+            </div>
+
+
+            <h3>
+              Pranav
+            </h3>
+
+
+            <div class="role">
+              Backend / API Integration
+            </div>
+
+
+            <p>
+
+              Supports backend development,
+              API integration and system
+              connectivity, helping different
+              components communicate reliably.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         PROJECT 01
+    ==================================================== -->
+
+    <section id="project">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            03 / PROJECT 01
+          </div>
+
+          <h2>
+            Autonomous
+            <br>
+            Threat Detection.
+          </h2>
+
+          <p class="sub">
+
+            An intelligent robotic platform
+            combining sensing, data processing,
+            computer vision and AI to support
+            threat detection and decision-making.
+
+          </p>
+
+        </div>
+
+
+        <div class="project">
+
+
+          <!-- ROBOT VISUAL -->
+
+          <div
+            class="project-visual reveal"
+          >
+
+            <div class="visual-grid"></div>
+
+
+            <div class="robot">
+
+              <div class="robot-antenna"></div>
+
+
+              <div class="robot-head">
+
+                <div
+                  class="robot-eye left"
+                ></div>
+
+                <div
+                  class="robot-eye right"
+                ></div>
+
+              </div>
+
+
+              <div
+                class="robot-body-line"
+              ></div>
+
+
+              <div
+                class="robot-sensor"
+              ></div>
+
+            </div>
+
+
+            <div class="visual-label">
+
+              AUTONOMOUS THREAT DETECTION
+              / ROBOTICS + AI
+
+            </div>
+
+          </div>
+
+
+
+          <!-- PROJECT INFO -->
+
+          <div
+            class="panel project-info reveal"
+          >
+
+            <div class="kicker">
+              ROBOTICS × AI
+            </div>
+
+
+            <h3>
+
+              Sense.
+              <br>
+              Analyze.
+              <br>
+              Detect.
+
+            </h3>
+
+
+            <p>
+
+              A modular robotics platform designed
+              to collect information from multiple
+              sensors and use intelligent processing
+              to identify potential threats and
+              support safer, faster decision-making.
+
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">
+                Raspberry Pi
+              </span>
+
+              <span class="tag">
+                AI / ML
+              </span>
+
+              <span class="tag">
+                Thermal
+              </span>
+
+              <span class="tag">
+                Sensor Fusion
+              </span>
+
+              <span class="tag">
+                Computer Vision
+              </span>
+
+              <span class="tag">
+                Embedded Systems
+              </span>
+
+            </div>
+
+
+            <div class="features">
+
+
+              <div class="feature">
+
+                <strong>
+                  MULTI-SENSOR
+                </strong>
+
+                <span>
+                  Combine information from
+                  different sensors.
+                </span>
+
+              </div>
+
+
+              <div class="feature">
+
+                <strong>
+                  AI PIPELINE
+                </strong>
+
+                <span>
+                  Analyze incoming data and
+                  identify patterns.
+                </span>
+
+              </div>
+
+
+              <div class="feature">
+
+                <strong>
+                  CONFIDENCE LAYER
+                </strong>
+
+                <span>
+                  Evaluate the reliability
+                  of detections.
+                </span>
+
+              </div>
+
+
+              <div class="feature">
+
+                <strong>
+                  DECISION SUPPORT
+                </strong>
+
+                <span>
+                  Convert processed information
+                  into useful outputs.
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         PROJECT DIVIDER
+    ==================================================== -->
+
+    <div class="container">
+
+      <div class="project-divider">
+
+        <div
+          class="project-divider-line"
+        ></div>
+
+        <span>
+          NEXT SYSTEM
+        </span>
+
+        <div
+          class="project-divider-line"
+        ></div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         PROJECT 02 — GEOSHIELD
+    ==================================================== -->
+
+    <section id="geoshield">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            04 / PROJECT 02
+          </div>
+
+          <h2>
+            GeoShield-AI.
+          </h2>
+
+          <p class="sub">
+
+            Integrated multi-modal rainfall
+            nowcasting, hyper-local inundation
+            and soil vulnerability early warning
+            system.
+
+          </p>
+
+        </div>
+
+
+        <div class="project">
+
+
+          <!-- GEOSHIELD VISUAL -->
+
+          <div
+            class="geo-visual reveal"
+          >
+
+            <div class="geo-grid"></div>
+
+
+            <div
+              class="geo-line one"
+            ></div>
+
+            <div
+              class="geo-line two"
+            ></div>
+
+            <div
+              class="geo-line three"
+            ></div>
+
+            <div
+              class="geo-line four"
+            ></div>
+
+
+            <div
+              class="geo-node geo-node-1"
+            >
+              SATELLITE + RADAR
+            </div>
+
+
+            <div
+              class="geo-node geo-node-2"
+            >
+              NWP + AWS
+            </div>
+
+
+            <div
+              class="geo-node geo-node-3"
+            >
+              ESP32 MICRO-NODES
+            </div>
+
+
+            <div
+              class="geo-node geo-node-4"
+            >
+              RISK + SIMULATION
+            </div>
+
+
+            <div class="geo-core">
+
+              <div>
+
+                <strong>
+                  GEOSHIELD
+                </strong>
+
+                <span>
+                  AI DISASTER INTELLIGENCE
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+          <!-- GEOSHIELD INFORMATION -->
+
+          <div
+            class="panel project-info reveal"
+          >
+
+            <div class="kicker">
+
+              SIH26071
+              •
+              DISASTER MANAGEMENT
+              •
+              SOFTWARE
+
+            </div>
+
+
+            <h3>
+              Forecast.
+              <br>
+              Localize.
+              <br>
+              Act.
+            </h3>
+
+
+            <p>
+
+              A decision-support system that
+              turns multi-source weather observations
+              into hyper-local, confidence-aware
+              disaster actions.
+
+            </p>
+
+
+            <div class="tags">
+
+
+              <span class="tag">
+                INSAT-3D / 3DR
+              </span>
+
+
+              <span class="tag">
+                Radar Frames
+              </span>
+
+
+              <span class="tag">
+                WRF / GFS
+              </span>
+
+
+              <span class="tag">
+                IMD Observations
+              </span>
+
+
+              <span class="tag">
+                ESP32
+              </span>
+
+
+              <span class="tag">
+                ConvLSTM
+              </span>
+
+
+              <span class="tag">
+                U-Net
+              </span>
+
+
+              <span class="tag">
+                DEM
+              </span>
+
+
+              <span class="tag">
+                Soil + Slope
+              </span>
+
+
+              <span class="tag">
+                Monte Carlo
+              </span>
+
+
+              <span class="tag">
+                PostGIS
+              </span>
+
+
+              <span class="tag">
+                Flutter
+              </span>
+
+
+            </div>
+
+
+            <div class="features">
+
+
+              <div class="feature">
+
+                <strong>
+                  01 — INGEST
+                </strong>
+
+                <span>
+                  MOSDAC / IMD feeds,
+                  NWP, AWS and
+                  ESP32 telemetry.
+                </span>
+
+              </div>
+
+
+              <div class="feature">
+
+                <strong>
+                  02 — FORECAST
+                </strong>
+
+                <span>
+                  ConvLSTM / U-Net
+                  for rainfall movement
+                  and intensity.
+                </span>
+
+              </div>
+
+
+              <div class="feature">
+
+                <strong>
+                  03 — LOCALIZE
+                </strong>
+
+                <span>
+                  DEM + soil absorption
+                  + slope + drainage
+                  → risk layers.
+                </span>
+
+              </div>
+
+
+              <div class="feature">
+
+                <strong>
+                  04 — SIMULATE
+                </strong>
+
+                <span>
+                  Monte Carlo →
+                  best / expected /
+                  worst case + confidence.
+                </span>
+
+              </div>
+
+
+              <div class="feature">
+
+                <strong>
+                  05 — ACT
+                </strong>
+
+                <span>
+                  CAP + FCM/SMS,
+                  Flutter GIS and
+                  responder workflows.
+                </span>
+
+              </div>
+
+
+              <div class="feature">
+
+                <strong>
+                  SECURITY
+                </strong>
+
+                <span>
+                  ECDSA signing,
+                  AES-256 and RBAC.
+                </span>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- GEOSHIELD METRICS -->
+
+        <div class="geo-metrics">
+
+
+          <div
+            class="geo-metric reveal"
+          >
+
+            <strong>
+              0–6 h
+            </strong>
+
+            <span>
+              Forecast Horizon
+            </span>
+
+          </div>
+
+
+          <div
+            class="geo-metric reveal"
+          >
+
+            <strong>
+              ~1 km
+            </strong>
+
+            <span>
+              Target Grid
+            </span>
+
+          </div>
+
+
+          <div
+            class="geo-metric reveal"
+          >
+
+            <strong>
+              3
+            </strong>
+
+            <span>
+              Risk Alert Levels
+            </span>
+
+          </div>
+
+
+          <div
+            class="geo-metric reveal"
+          >
+
+            <strong>
+              4+
+            </strong>
+
+            <span>
+              Notification Paths
+            </span>
+
+          </div>
+
+
+        </div>
+
+
+
+        <!-- GEOSHIELD IMPACT -->
+
+        <div
+          class="panel geo-impact reveal"
+        >
+
+          <div class="kicker">
+            IMPACT & BENEFITS
+          </div>
+
+
+          <h3>
+            Forecast → Risk →
+            Decision → Action
+          </h3>
+
+
+          <p>
+
+            The proposed architecture connects
+            meteorological intelligence with terrain
+            vulnerability and last-mile response.
+
+            Outputs include inundation extent/depth,
+            soil vulnerability, unsafe-route warnings,
+            role-based alerts and incident reports.
+
+          </p>
+
+
+          <div class="tags">
+
+
+            <span class="tag">
+              NDRF / SDRF
+            </span>
+
+
+            <span class="tag">
+              Municipal / Police
+            </span>
+
+
+            <span class="tag">
+              Public Alerts
+            </span>
+
+
+            <span class="tag">
+              Unsafe Routes
+            </span>
+
+
+            <span class="tag">
+              Crowdsourced Reporting
+            </span>
+
+
+            <span class="tag">
+              Confidence-Aware
+            </span>
+
+
+            <span class="tag">
+              Multi-Channel
+            </span>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         TECHNOLOGY
+    ==================================================== -->
+
+    <section id="stack">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            05 / TECHNOLOGY
+          </div>
+
+          <h2>
+            Our stack.
+          </h2>
+
+          <p class="sub">
+
+            Technologies that help us prototype,
+            process data, develop AI and connect
+            intelligent systems with hardware.
+
+          </p>
+
+        </div>
+
+
+        <div class="tech-grid">
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              🐍
+            </div>
+
+            <strong>
+              Python
+            </strong>
+
+            <span>
+              AI + Data
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              🧠
+            </div>
+
+            <strong>
+              Machine Learning
+            </strong>
+
+            <span>
+              Prediction + Detection
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              👁️
+            </div>
+
+            <strong>
+              Computer Vision
+            </strong>
+
+            <span>
+              Visual Intelligence
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              📡
+            </div>
+
+            <strong>
+              Sensor Fusion
+            </strong>
+
+            <span>
+              Multi-source Data
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              🤖
+            </div>
+
+            <strong>
+              Robotics
+            </strong>
+
+            <span>
+              Autonomous Systems
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              🛰️
+            </div>
+
+            <strong>
+              IoT
+            </strong>
+
+            <span>
+              Connected Devices
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              ⚡
+            </div>
+
+            <strong>
+              Raspberry Pi
+            </strong>
+
+            <span>
+              Edge Computing
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              🔧
+            </div>
+
+            <strong>
+              Embedded Systems
+            </strong>
+
+            <span>
+              Hardware Control
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              🌧️
+            </div>
+
+            <strong>
+              ConvLSTM / U-Net
+            </strong>
+
+            <span>
+              Rainfall Nowcasting
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              🗺️
+            </div>
+
+            <strong>
+              PostGIS
+            </strong>
+
+            <span>
+              Geospatial Data
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              📱
+            </div>
+
+            <strong>
+              Flutter
+            </strong>
+
+            <span>
+              GIS + Alerts
+            </span>
+
+          </div>
+
+
+          <div class="tech reveal">
+
+            <div class="tech-icon">
+              🔐
+            </div>
+
+            <strong>
+              Security
+            </strong>
+
+            <span>
+              ECDSA + AES-256 + RBAC
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         WORKFLOW
+    ==================================================== -->
+
+    <section id="workflow">
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            06 / WORKFLOW
+          </div>
+
+          <h2>
+            How we build.
+          </h2>
+
+          <p class="sub">
+
+            Our systems transform raw information
+            from the physical environment into
+            meaningful, confidence-aware outputs.
+
+          </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+          <div class="step reveal">
+
+            <small>
+              01 — SENSE
+            </small>
+
+            <h3>
+              Collect the environment.
+            </h3>
+
+            <p>
+
+              Cameras, thermal sensors,
+              environmental sensors and
+              onboard systems gather
+              information from the environment.
+
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">
+                Camera / Visual Data
+              </span>
+
+              <span class="tag">
+                Thermal
+              </span>
+
+              <span class="tag">
+                Environmental Sensors
+              </span>
+
+              <span class="tag">
+                Onboard Sensors
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="step reveal">
+
+            <small>
+              02 — PROCESS
+            </small>
+
+            <h3>
+              Clean and combine data.
+            </h3>
+
+            <p>
+
+              Raw information is cleaned,
+              synchronized and organized
+              before it reaches the intelligent
+              analysis layer.
+
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">
+                Data Cleaning
+              </span>
+
+              <span class="tag">
+                Sensor Synchronization
+              </span>
+
+              <span class="tag">
+                Feature Preparation
+              </span>
+
+              <span class="tag">
+                Multi-Sensor Integration
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="step reveal">
+
+            <small>
+              03 — UNDERSTAND
+            </small>
+
+            <h3>
+              Run intelligent analysis.
+            </h3>
+
+            <p>
+
+              AI and machine-learning components
+              analyze prepared data to identify
+              objects, patterns, events and
+              environmental conditions.
+
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">
+                AI / ML
+              </span>
+
+              <span class="tag">
+                Computer Vision
+              </span>
+
+              <span class="tag">
+                Pattern Analysis
+              </span>
+
+              <span class="tag">
+                Object Detection
+              </span>
+
+            </div>
+
+          </div>
+
+
+
+          <div class="step reveal">
+
+            <small>
+              04 — DECIDE
+            </small>
+
+            <h3>
+              Turn intelligence into action.
+            </h3>
+
+            <p>
+
+              Detection confidence and system
+              outputs are evaluated before being
+              passed to decision-support and
+              response layers.
+
+            </p>
+
+
+            <div class="tags">
+
+              <span class="tag">
+                Confidence Evaluation
+              </span>
+
+              <span class="tag">
+                Detection Results
+              </span>
+
+              <span class="tag">
+                Decision Support
+              </span>
+
+              <span class="tag">
+                System Response
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         PROJECT IMPACT
+    ==================================================== -->
+
+    <section>
+
+      <div class="container">
+
+
+        <div class="section-head reveal">
+
+          <div class="kicker">
+            07 / WHY IT MATTERS
+          </div>
+
+          <h2>
+            Technology with a purpose.
+          </h2>
+
+          <p class="sub">
+
+            Our projects focus on connecting
+            intelligent data processing with
+            real-world decision support.
+
+          </p>
+
+        </div>
+
+
+        <div class="impact-grid">
+
+
+          <div
+            class="panel impact-card reveal"
+          >
+
+            <div class="impact-number">
+              01
+            </div>
+
+            <h3>
+              Intelligent Sensing
+            </h3>
+
+            <p>
+
+              Combine multiple information
+              sources to create a richer
+              understanding of the environment.
+
+            </p>
+
+          </div>
+
+
+
+          <div
+            class="panel impact-card reveal"
+          >
+
+            <div class="impact-number">
+              02
+            </div>
+
+            <h3>
+              Data-Driven Decisions
+            </h3>
+
+            <p>
+
+              Convert raw sensor and
+              environmental information
+              into useful intelligence.
+
+            </p>
+
+          </div>
+
+
+
+          <div
+            class="panel impact-card reveal"
+          >
+
+            <div class="impact-number">
+              03
+            </div>
+
+            <h3>
+              Actionable Outputs
+            </h3>
+
+            <p>
+
+              Build systems where AI outputs
+              can support human decisions,
+              response and operations.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ===================================================
+         CONTACT
+    ==================================================== -->
+
+    <section id="contact">
+
+      <div class="container">
+
+
+        <div class="cta reveal">
+
+
+          <div class="kicker">
+            08 / CONTACT
+          </div>
+
+
+          <h2>
+            Let's build something.
+          </h2>
+
+
+          <p>
+
+            GRUS Minions is open to collaboration,
+            technical discussions, hackathons and
+            opportunities to showcase our work.
+
+          </p>
+
+
+          <div class="buttons">
+
+
+            <a
+              class="btn primary"
+              href="mailto:grusminions7@gmail.com"
+            >
+              Email the Team
+            </a>
+
+
+            <a
+              class="btn secondary"
+              href="#home"
+            >
+              Back to Top ↑
+            </a>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+
+      <div>
+
+        <div class="footer-brand">
+          GRUS<span> MINIONS</span>
+        </div>
+
+        <div>
+          Robotics × AI × Data
+        </div>
+
+      </div>
+
+
+      <div>
+
+        © 2026 GRUS Minions.
+        Built for innovation.
+
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+
+    /* =====================================================
+       MOBILE NAVIGATION
+    ====================================================== */
+
+    const menuButton =
+      document.getElementById(
+        "menuButton"
+      );
+
+
+    const navLinks =
+      document.getElementById(
+        "navLinks"
+      );
+
+
+    menuButton.addEventListener(
+      "click",
+      function () {
+
+        navLinks.classList.toggle(
+          "open"
+        );
+
+
+        const isOpen =
+          navLinks.classList.contains(
+            "open"
+          );
+
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          isOpen
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       CLOSE MOBILE NAV ON LINK CLICK
+    ====================================================== */
+
+    document
+      .querySelectorAll(
+        ".nav-links a"
+      )
+      .forEach(
+        function (link) {
+
+          link.addEventListener(
+            "click",
+            function () {
+
+              navLinks.classList.remove(
+                "open"
+              );
+
+              menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ====================================================== */
+
+    const revealObserver =
+      new IntersectionObserver(
+        function (entries) {
+
+          entries.forEach(
+            function (entry) {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                entry.target.classList.add(
+                  "show"
+                );
+
+                revealObserver.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+        {
+          threshold: .12
+        }
+      );
+
+
+    document
+      .querySelectorAll(
+        ".reveal"
+      )
+      .forEach(
+        function (element) {
+
+          revealObserver.observe(
+            element
+          );
+
+        }
+      );
+
+
+    /* =====================================================
+       ACTIVE NAV LINK
+    ====================================================== */
+
+    const sections =
+      document.querySelectorAll(
+        "main section[id]"
+      );
+
+
+    const navigationLinks =
+      document.querySelectorAll(
+        ".nav-links a"
+      );
+
+
+    const navObserver =
+      new IntersectionObserver(
+        function (entries) {
+
+          entries.forEach(
+            function (entry) {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                navigationLinks
+                  .forEach(
+                    function (link) {
+
+                      link.style.color = "";
+
+                    }
+                  );
+
+
+                const active =
+                  document.querySelector(
+                    '.nav-links a[href="#' +
+                    entry.target.id +
+                    '"]'
+                  );
+
+
+                if (active) {
+
+                  active.style.color =
+                    "var(--accent)";
+
+                }
+
+              }
+
+            }
+          );
+
+        },
+        {
+          rootMargin:
+            "-30% 0px -60% 0px"
+        }
+      );
+
+
+    sections.forEach(
+      function (section) {
+
+        navObserver.observe(
+          section
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       REDUCED MOTION SUPPORT
+    ====================================================== */
+
+    const prefersReducedMotion =
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+
+
+    if (
+      prefersReducedMotion.matches
+    ) {
+
+      document
+        .querySelectorAll(
+          ".reveal"
+        )
+        .forEach(
+          function (element) {
+
+            element.classList.add(
+              "show"
+            );
+
+          }
+        );
+
+    }
+
+
+  </script>
+
+
+</body>
+</html>
